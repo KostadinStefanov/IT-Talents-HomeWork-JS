@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Calculating degrees</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+	    <label for="convert">Convert</label>
+	    <input type="text" id="convert" name="convert">
+	    <select id="first" class="inline">
+	        <option value="kg" selected >kg</option>
+	        <option value="lb">lb</option>
+	    </select>
+	    <select class="inline" id="second" >
+	    	<option value="kg">kg</option>
+	    	<option value="lb" selected>lb</option>
+	    </select>
+	    <button type="submit" id="calculate">Calculate !</button>     
+	<div id="res" style="margin: 10px">      	
+    </div>
+    <script>
+		var button = document.getElementById('calculate');
+ 		button.addEventListener('click', displayResult, false);
+
+    	function displayResult(){
+	    	var a = document.getElementById('first').value;
+	 		var b = document.getElementById('second').value;
+	 		var res = document.getElementById('res');
+	 		var valToConvert = document.getElementsByName('convert')[0].value;
+	 		var valToDisplay = 0;
+	 		
+
+ 			if (a !== b ) {
+ 				a == 'kg' ? printLibs() : printKilos();
+ 			}
+ 			else {
+ 				valToDisplay = "No Point of converting equel meassures";
+ 			}
+ 			 						
+ 			function printLibs(){
+ 			valToDisplay = Number(valToConvert)*  2.2046 ;
+	 		}
+
+	 		function printKilos(){
+	 			valToDisplay = Number(valToConvert) /  2.2046 ;
+	 		}
+
+	 		res.innerHTML = valToDisplay;	 			 		
+    	}  						
+    </script>
+</body>
+</html>
